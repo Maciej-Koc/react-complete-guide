@@ -7,8 +7,7 @@ import ExpensesFilter from "./ExpenseFilter";
 function Expenses(props) {
   //Stored filtered year in a state
 
-  const [year, setYear] = React.useState("");
-  console.log(year);
+  const [year, setYear] = React.useState("2020");
 
   return (
     <div>
