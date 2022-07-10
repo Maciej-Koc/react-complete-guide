@@ -18,12 +18,25 @@ export default function ExpenseForm() {
     setDate(event.target.value);
   }
 
+  function submitHandler(event) {
+    //Prevent browser from reloading
+    event.preventDefault();
+
+    const expenseDate = {
+      title: title,
+      amount: amount,
+      date: new Date(date),
+    };
+
+    console.log(expenseDate);
+  }
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangerHandler} />
+          <input type="text" onChange={titleChangerHandler} value={title} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -32,6 +45,7 @@ export default function ExpenseForm() {
             min="0.01"
             step="0.01"
             onChange={amountChangerHandler}
+            value={amount}
           />
         </div>
         <div className="new-expense__control">
@@ -41,6 +55,7 @@ export default function ExpenseForm() {
             min="2019-01-01"
             max="2022-12-31"
             onChange={dateChangerHandler}
+            date={date}
           />
         </div>
       </div>
