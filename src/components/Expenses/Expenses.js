@@ -15,6 +15,7 @@ function Expenses(props) {
         <ExpensesFilter passYear={(year) => setYear(year)} />
         {props.items.map((expense) => (
           <ExpenseItem
+            key={expense.id} //Unique identifier required for React
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
