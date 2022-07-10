@@ -6,15 +6,15 @@ export default function ExpenseForm(props) {
   const [amount, setAmount] = React.useState("");
   const [date, setDate] = React.useState("");
 
-  function titleChangerHandler(event) {
+  function titleChangeHandler(event) {
     setTitle(event.target.value);
   }
 
-  function amountChangerHandler(event) {
+  function amountChangeHandler(event) {
     setAmount(event.target.value);
   }
 
-  function dateChangerHandler(event) {
+  function dateChangeHandler(event) {
     setDate(event.target.value);
   }
 
@@ -28,7 +28,7 @@ export default function ExpenseForm(props) {
       date: new Date(date),
     };
 
-    props.onSaveExpenseData();
+    props.onSaveExpenseData(expenseDate);
 
     //Reset data after submit
     setTitle("");
@@ -44,7 +44,7 @@ export default function ExpenseForm(props) {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangerHandler} value={title} />
+          <input type="text" value={title} onChange={titleChangeHandler} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -52,8 +52,8 @@ export default function ExpenseForm(props) {
             type="number"
             min="0.01"
             step="0.01"
-            onChange={amountChangerHandler}
             value={amount}
+            onChange={amountChangeHandler}
           />
         </div>
         <div className="new-expense__control">
@@ -62,8 +62,8 @@ export default function ExpenseForm(props) {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
-            onChange={dateChangerHandler}
-            date={date}
+            value={date}
+            onChange={dateChangeHandler}
           />
         </div>
       </div>
