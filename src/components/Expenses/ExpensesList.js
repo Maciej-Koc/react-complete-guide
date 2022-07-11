@@ -10,16 +10,14 @@ export default function ExpensesList(props) {
 
   return (
     <ul className="expenses-list">
-      {
-        (expensesContent = props.items.map((expense) => (
-          <ExpenseItem
-            key={expense.id} //Unique identifier required for React, add when mapping list
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        )))
-      }
+      {props.items.map((expense) => (
+        <ExpenseItem
+          key={expense.id} //Unique identifier required for React, add when mapping list
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+        />
+      ))}
     </ul>
   );
 }

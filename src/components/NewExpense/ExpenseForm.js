@@ -39,6 +39,21 @@ export default function ExpenseForm(props) {
     // console.log(expenseDate);
   }
 
+  const [button, setButton] = React.useState(false);
+
+  if (!button) {
+    return (
+      <button
+        className="submit"
+        onClick={() => {
+          setButton(true);
+        }}
+      >
+        Add New Expense
+      </button>
+    );
+  }
+
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
